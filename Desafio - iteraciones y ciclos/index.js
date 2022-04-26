@@ -1,8 +1,9 @@
 
 let hambre = 0;
 let comida;
-while(hambre<100){
 
+
+while(hambre<100){
 comida = prompt("¿Qué queres comer? Tenes 3 opciones: Pizza, Empanadas, Sushi");
   switch(comida){
     case "Pizza":
