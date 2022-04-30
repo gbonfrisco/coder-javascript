@@ -1,7 +1,8 @@
 
 class Cliente {
-  constructor(nombre, metodoPago, dineroDisponible) {
-    this.nombre = nombre;
+  constructor(usuario, contrasenia, metodoPago, dineroDisponible) {
+    this.usuario = usuario;
+    this.contrasenia = contrasenia;
     this.metodoPago = metodoPago;
     this.dineroDisponible = dineroDisponible;
     this.dineroGastado = 0;
@@ -63,24 +64,34 @@ class Cliente {
 let stockCafe = 20;
 let costoEnCarrito = 0;
 
+function logIn(){
+  let usuario = prompt("Bienvenido. Ingrese su usuario");
+  let contrasenia = prompt("Ingrese su contraseña");
+  let dinero = parseInt(prompt("¿Cual es tu presupuesto?"));
+  return new Cliente(usuario, contrasenia, "TC - VISA", dinero);
+}
 
+function comprar(cliente){
 let seguirComprando = "si";
-let nombre = prompt("Bienvenido. ¿Como te llamas?");
-let dinero = parseInt(prompt("¿Cual es tu presupuesto?"));
-const cliente = new Cliente(nombre, "TC - VISA", dinero);
-
 while (seguirComprando == "si") {
 
 
-  let cafe = prompt(`Bienvenido ${cliente.nombre}.` + "¿Qué café querés comprar?");
+  let cafe = prompt(`Bienvenido ${cliente.usuario}.` + "¿Qué café querés comprar?");
   let cantidad = parseInt(prompt("¿Cuantos querés comprar?"));
   cliente.anadirCarrito(cafe, cantidad);
   if(stockCafe>0){
   seguirComprando = prompt("¿Queres seguir comprando? Escribi 'si' para seguir, o cualquier otra palabra para salir.");
 }
-else break;
+else{
+alert("Costo total de la operacion: "+costoEnCarrito);
+return cliente;
+}
 }
 
 alert("Costo total de la operacion: "+costoEnCarrito);
+return cliente;
+}
 
+const cliente = logIn();
+comprar(cliente);
 cliente.pagar();
