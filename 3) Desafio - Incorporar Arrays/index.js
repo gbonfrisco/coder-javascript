@@ -19,51 +19,6 @@ class Cliente {
     this.dineroGastado = 0;
     this.comprasRealizadas = [];
   }
-  /*anadirCarrito(nombreCafe, cantidad) {
-    if (stockCafe > 0 && stockCafe >= cantidad) {
-      switch (nombreCafe) {
-        case "Americano":
-          stockCafe = stockCafe - cantidad;
-          costoEnCarrito = costoEnCarrito + 200 * cantidad;
-          alert(`Compraste ${cantidad} cafe/s` + nombreCafe +". El stock ahora es de: " + stockCafe);
-          break;
-
-        case "Latte":
-          stockCafe = stockCafe - cantidad;
-          costoEnCarrito = costoEnCarrito + 250 * cantidad;
-          alert(`Compraste ${cantidad} cafe/s` + nombreCafe +". El stock ahora es de: " + stockCafe);
-          break;
-
-        case "Doble":
-          stockCafe = stockCafe - cantidad;
-          costoEnCarrito = costoEnCarrito + 150 * cantidad;
-          alert(`Compraste ${cantidad} cafe/s` + nombreCafe +". El stock ahora es de: " + stockCafe);
-          break;
-          
-        case "Puro":
-          stockCafe = stockCafe - cantidad;
-          costoEnCarrito = costoEnCarrito + 100 * cantidad;
-          alert(`Compraste ${cantidad} cafe/s` + nombreCafe +". El stock ahora es de: " + stockCafe);
-          break;
-          
-        case "Irlandes":
-          stockCafe = stockCafe - cantidad;
-          costoEnCarrito = costoEnCarrito + 400 * cantidad;
-          alert(`Compraste ${cantidad} cafe/s` + nombreCafe +". El stock ahora es de: " + stockCafe);
-          break;
-
-        case "Cortado":
-          stockCafe = stockCafe - cantidad;
-          costoEnCarrito = costoEnCarrito + 200 * cantidad;
-          alert(`Compraste ${cantidad} cafe/s` + nombreCafe +". El stock ahora es de: " + stockCafe);
-          break;
-
-        default:
-          alert("No ingresaste un cafe valido");
-          break;
-      }
-    } else alert("No hay stock de productos. Vuelva en otro momento");
-  }*/
 
   comprar() {
     let cafe = prompt("¿Que café queres comprar?");
