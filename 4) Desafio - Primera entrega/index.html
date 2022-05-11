@@ -1,212 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tienda de Café</title>
     <!-- Estilos -->
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="assets/css/estilos.css" />
     <!-- Box Icons -->
-    <link rel="stylesheet"
-    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+  <body>
     <!-- navbar -->
-<header>
-    <a href="#" class="logo">
-        <img src="assets/img/logov2.png" alt="logo">
-    </a>
-    <!-- Menu icon -->
-    <i class='bx bx-menu' id="menu-icon"></i>
-    <!-- links -->
-    <ul class="navbar">
+    <header>
+      <a href="#" class="logo">
+        <img src="assets/img/logov2.png" alt="logo" />
+      </a>
+      <!-- Menu icon -->
+      <i class="bx bx-menu" id="menu-icon"></i>
+      <!-- links -->
+      <ul class="navbar">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">Nosotros</a></li>
         <li><a href="#products">Productos</a></li>
         <li><a href="#customers">Clientes</a></li>
         <li><a href="#footer">Contacto</a></li>
-    </ul>
-    <!-- Iconos -->
-    <div class="header-icon">
-        <i class='bx bx-cart-alt' ></i>
-        <i class='bx bx-search' id="search-icon"></i>
-    </div>
-    <!-- search box -->
-    <div class="search-box">
-        <input type="search" name="" id="" placeholder="Search Here..">
-    </div>
-</header>
-<!-- Home -->
-<section class="home" id="home">
-    <div class="home-text">
-        <h1>Empezá tu dia <br>con un café!</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, voluptatem.</p>
+      </ul>
+      <!-- Iconos -->
+      <div class="header-icon">
+        <i class="bx bx-cart-alt"></i>
+        <i class="bx bx-search" id="search-icon"></i>
+      </div>
+      <!-- search box -->
+      <div class="search-box">
+        <input type="search" name="" id="" placeholder="Search Here.." />
+      </div>
+    </header>
+    <!-- Home -->
+    <section class="home" id="home">
+      <div class="home-text">
+        <!-- <h1>Bienvenido Gustavo</h1> -->
+        <h1>Empezá tu dia <br />con un café!</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum,
+          voluptatem.
+        </p>
         <a href="#" class="btn">Comprá ahora!</a>
-    </div>    
-    <div class="home-img">
-        <img src="assets/img/coffee1.png" alt="imagen de cafe">
-    </div>
-</section>
+      </div>
+      <div class="home-img">
+        <img src="assets/img/coffee1.png" alt="imagen de cafe" />
+      </div>
+    </section>
 
-<!-- Nosotros -->
-<section class="about" id="about">
-    <div class="about-img">
-        <img src="assets/img/cafe2.jpg" alt="cafe2">
-    </div>
-    <div class="about-text">
+    <!-- Nosotros -->
+    <section class="about" id="about">
+      <div class="about-img">
+        <img src="assets/img/cafe2.jpg" alt="cafe2" />
+      </div>
+      <div class="about-text">
         <h2>Nuestra Historia</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic tenetur similique architecto, ad laboriosam omnis sed facilis aut maiores dolorem.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic tenetur similique architecto, ad laboriosam omnis sed facilis aut maiores dolorem..</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic tenetur similique architecto, ad laboriosam omnis sed facilis aut maiores dolorem.</p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic tenetur
+          similique architecto, ad laboriosam omnis sed facilis aut maiores
+          dolorem.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic tenetur
+          similique architecto, ad laboriosam omnis sed facilis aut maiores
+          dolorem..
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic tenetur
+          similique architecto, ad laboriosam omnis sed facilis aut maiores
+          dolorem.
+        </p>
         <a href="#" class="btn">Conocé mas</a>
-    </div>
-</section>
-<!-- Producto -->
-<section class="products" id="products">
-<div class="heading">
-    <h2>Nuestros productos mas populares</h2>
+      </div>
+    </section>
+    <!-- Producto -->
+    <section class="products" id="products">
+      <div class="heading">
+        <h2>Nuestros productos mas populares</h2>
         <!-- Containter -->
         <div class="products-container">
-            <div class="box">
-                <img src="assets/img/product1.jpg" alt="product1">
-                <h3>Americano puro</h3>
-                <div class="content">
-                    <span>$200</span>
-                    <a href="#">Sumar al carrito</a>
-                </div>
+          <div class="box">
+            <img src="assets/img/product1.jpg" alt="product1" />
+            <h3>Americano puro</h3>
+            <input type="number" id="formGroupExampleInput2" placeholder="¿Cuantos queres?">
+            <div class="content">
+              <span>$200</span>
+              <a>Sumar al carrito</a>
+             
             </div>
-            <div class="box">
-                <img src="assets/img/product2.jpg" alt="product2">
-                <h3>Americano puro</h3>
-                <div class="content">
-                    <span>$200</span>
-                    <a href="#">Sumar al carrito</a>
-                </div>
+          <!-- </div>
+          <div class="box">
+            <img src="assets/img/product2.jpg" alt="product2" />
+            <h3>Americano puro</h3>
+            <div class="content">
+              <span>$200</span>
+              <a>Sumar al carrito</a>
             </div>
-            <div class="box">
-                <img src="assets/img/product3.jpg" alt="product3">
-                <h3>Americano puro</h3>
-                <div class="content">
-                    <span>$200</span>
-                    <a href="#">Sumar al carrito</a>
-                </div>
+          </div>
+          <div class="box">
+            <img src="assets/img/product3.jpg" alt="product3" />
+            <h3>Americano puro</h3>
+            <div class="content">
+              <span>$200</span>
+              <a href="#">Sumar al carrito</a>
             </div>
-            <div class="box">
-                <img src="assets/img/product4.jpg" alt="product4">
-                <h3>Americano puro</h3>
-                <div class="content">
-                    <span>$200</span>
-                    <a href="#">Sumar al carrito</a>
-                </div>
+          </div>
+          <div class="box">
+            <img src="assets/img/product4.jpg" alt="product4" />
+            <h3>Americano puro</h3>
+            <div class="content">
+              <span>$200</span>
+              <a href="#">Sumar al carrito</a>
             </div>
-            <div class="box">
-                <img src="assets/img/product5.jpg" alt="product5">
-                <h3>Americano puro</h3>
-                <div class="content">
-                    <span>$200</span>
-                    <a href="#">Sumar al carrito</a>
-                </div>
+          </div>
+          <div class="box">
+            <img src="assets/img/product5.jpg" alt="product5" />
+            <h3>Americano puro</h3>
+            <div class="content">
+              <span>$200</span>
+              <a href="#">Sumar al carrito</a>
             </div>
-            <div class="box">
-                <img src="assets/img/product5.jpg" alt="product6">
-                <h3>Americano puro</h3>
-                <div class="content">
-                    <span>$200</span>
-                    <a href="#">Sumar al carrito</a>
-                </div>
+          </div>
+          <div class="box">
+            <img src="assets/img/product5.jpg" alt="product6" />
+            <h3>Americano puro</h3>
+            <div class="content">
+              <span>$200</span>
+              <a href="#">Sumar al carrito</a>
             </div>
+          </div> -->
         </div>
-</div>
-</section>
+      </div>
+    </section>
 
-<!-- Clientes -->
-<section class="customers" id="customers">
-    <div class="heading">
+    <!-- Clientes -->
+    <section class="customers" id="customers">
+      <div class="heading">
         <h2>Nuestros clientes</h2>
-    </div>
-    <!-- container -->
-    <div class="customers-container">
+      </div>
+      <!-- container -->
+      <div class="customers-container">
         <div class="box">
-            <div class="stars">
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star-half'></i>    
-            </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio consectetur temporibus molestiae eaque, suscipit voluptas?</p>
-            <h2>Matias Bonfrisco</h2>
-            <img src="assets/img/cliente1.png" alt="cliente1">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star-half"></i>
+          </div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio
+            consectetur temporibus molestiae eaque, suscipit voluptas?
+          </p>
+          <h2>Matias Bonfrisco</h2>
+          <img src="assets/img/cliente1.png" alt="cliente1" />
         </div>
         <div class="box">
-            <div class="stars">
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star-half'></i>    
-            </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio consectetur temporibus molestiae eaque, suscipit voluptas?</p>
-            <h2>Laura Bonfrisco</h2>
-            <img src="assets/img/cliente2.png" alt="cliente2">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star-half"></i>
+          </div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio
+            consectetur temporibus molestiae eaque, suscipit voluptas?
+          </p>
+          <h2>Laura Bonfrisco</h2>
+          <img src="assets/img/cliente2.png" alt="cliente2" />
         </div>
         <div class="box">
-            <div class="stars">
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star-half'></i>    
-            </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio consectetur temporibus molestiae eaque, suscipit voluptas?</p>
-            <h2>Emiliano Bonfrisco</h2>
-            <img src="assets/img/cliente3.png" alt="cliente3">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star-half"></i>
+          </div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio
+            consectetur temporibus molestiae eaque, suscipit voluptas?
+          </p>
+          <h2>Emiliano Bonfrisco</h2>
+          <img src="assets/img/cliente3.png" alt="cliente3" />
         </div>
-    </div>
-</section>
-<!-- Footer -->
-<section class="footer"id="footer">
-    <div class="footer-box">
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="form-contacto" id="form-contacto">
+      <div class="heading"><h2>Hablá con nosotros</h2></div>
+
+      <!-- container -->
+      <div class="form-container">
+        <div>
+            <div class="box">
+                <label for="formGroupExampleInput">Nombre</label>
+    
+                <input type="text" class="box" id="formGroupExampleInput" 
+                placeholder="Ingrese su nombre"
+    
+              />
+            </div>
+            <div class="box">
+                <label for="formGroupExampleInput2">Telefono</label>
+    
+                <input type="number" class="box" id="formGroupExampleInput2" placeholder="Ingrese telefono">
+    
+            </div>
+            <div class="box">
+                <label for="formGroupExampleInput3">Email</label>
+    
+                <input type="email" class="box" name="email" id="formGroupExampleInput3" placeholder="Ingrese su correo electronico">
+    
+            </div>
+        </div>
+        
+        <div>
+            <label for="floatingTextarea">Comentarios</label>
+            <textarea class="box text-area" placeholder="Deje un comentario aqui" id="floatingTextarea"></textarea>
+        </div>
+        
+      </div>
+      
+    <button type="submit" class="box btn">Enviar</button>
+    </section>
+    
+    <!-- Footer -->
+    <section class="footer" id="footer">
+      <div class="footer-box">
         <h2>Tienda de Café</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ipsa voluptas aut?</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ipsa
+          voluptas aut?
+        </p>
         <div class="social">
-            <a href="#"><i class='bx bxl-facebook'></i></a>
-            <a href="#"><i class='bx bxl-twitter'></i></a>
-            <a href="#"><i class='bx bxl-instagram'></i></a>
-            <a href="#"><i class='bx bxl-tiktok'></i></a>        
+          <a href="#"><i class="bx bxl-facebook"></i></a>
+          <a href="#"><i class="bx bxl-twitter"></i></a>
+          <a href="#"><i class="bx bxl-instagram"></i></a>
+          <a href="#"><i class="bx bxl-tiktok"></i></a>
         </div>
-    </div>
-    <div class="footer-box">
+      </div>
+      <div class="footer-box">
         <h3>Soporte</h3>
         <li><a href="#">Producto</a></li>
         <li><a href="#">Ayuda y Soporte</a></li>
         <li><a href="#">Politica de devoluciones</a></li>
         <li><a href="#">Promociones</a></li>
-    </div>
-    <div class="footer-box">
+      </div>
+      <div class="footer-box">
         <h3>Guias</h3>
         <li><a href="#">Features</a></li>
         <li><a href="#">Carrera</a></li>
         <li><a href="#">Blogs</a></li>
         <li><a href="#">Nuestras marcas</a></li>
-    </div>
-    <div class="footer-box">
+      </div>
+      <div class="footer-box">
         <h3>Contacto</h3>
         <div class="contacto">
-            <span><i class='bx bx-map' ></i>Palermo, Buenos Aires - Argentina</span>
-            <span><i class='bx bx-phone' ></i>11-3618-6396</span>
-            <span><i class='bx bx-envelope' ></i>owncoffee@shop.com.ar</span>
+          <span
+            ><i class="bx bx-map"></i>Palermo, Buenos Aires - Argentina</span
+          >
+          <span><i class="bx bx-phone"></i>11-3618-6396</span>
+          <span><i class="bx bx-envelope"></i>owncoffee@shop.com.ar</span>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
     <!-- Copyright -->
     <div class="copy">
-        <p>&#169; Own Coffee, todos los derechos reservados</p>
+      <p>&#169; Own Coffee, todos los derechos reservados</p>
     </div>
 
-<!-- Link to JS -->
-<script src="index.js"></script>
-
-</body>
+    <!-- Link to JS -->
+    <!-- <script src="index.js"></script> -->
+  </body>
 </html>

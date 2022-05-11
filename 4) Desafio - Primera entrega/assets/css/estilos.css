@@ -220,6 +220,19 @@ header.shadow{
     border-radius: 4px;
     font-weight: 500;
 }
+.products-container .box input{
+    /* padding: 0 1rem; */
+    color: var(--text-color);
+    border: 2px solid var(--main-color);
+    border-radius: 4px;
+    max-width: 40%;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    object-position: center;
+    font-weight: 500;
+}
 .products-container .box .content a{
     padding: 0 1rem;
     color: var(--text-color);
@@ -322,6 +335,31 @@ transition: 0.2s all linear;
     text-align: center;
     background: var(--color-secundario);
 }
+.form-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(17rem,auto));/*ver que onda esto*/
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.form-container .box{
+    position: relative;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0.5rem;
+    /* box-shadow: var(--box-shadow); */
+}
+.text-area {
+    resize: none;
+    min-width: 88%;
+    min-height: 88%;
+}
+.form-contacto .btn{
+    margin-left: 15px;
+}
+
+
 @media (max-width:1150px){
     header{
         padding: 16px 60px;
