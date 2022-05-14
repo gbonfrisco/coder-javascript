@@ -20,9 +20,9 @@ class Cliente {
     this.comprasRealizadas = [];
   }
 
-  comprar() {
+  comprar(idParametro) {
     alert("Puedo comprar");
-    capturarStock(id);
+    capturarStock(idParametro);
   }
   pagar() {
 
@@ -78,8 +78,7 @@ function reponerMercaderia(cantidad, cafe) {
         stock.push(new Producto(0, cafe, 200));
 
       }
-      console.log(`Entre a Americano y pedi ${i}`);
-
+      
       agregarStock(0,i);
       
       controlarStock(0,i);  
@@ -136,6 +135,9 @@ function eliminarStock(producto) {
 function stockSeleccionado(nombreCafe) {
 
   return stock.filter((elemento) => elemento.nombre === nombreCafe);
+}
+function traerProducto(producto){
+  
 }
 
 function cantidadStock(nombreCafe){
@@ -215,7 +217,7 @@ function agregarNombre(nombre){
 }
 
 function agregarStock(id, cantidad){
-console.log("Entro a agregarstock")
+//console.log("Entro a agregarstock", id)
 let contents = document.getElementById(`stock_${id}`);
 
 let controlStock = document.createElement("a");
@@ -227,34 +229,74 @@ if(cantidad == undefined){
 }
 
 else controlStock.innerHTML = "Producto en stock: "+ cantidad;
-console.log(controlStock);
+//console.log(controlStock);
 contents.insertAdjacentElement("afterend",controlStock);
 
 }
 
 
 function controlarStock(id,cant){
-console.log("entre a controlarStock()");
+//console.log("entre a controlarStock()");
 let formStocks = document.getElementById(`stock_${id}`);
 let aux = formStocks.getElementsByTagName("input")[0];
 aux.setAttribute("max",`${cant}`);
 
 }
 
-
+/*
 function capturarStock(id)
 {
-  console.log(`enrte a capturarStock ${id}`);
+  console.log(`entre a capturarStock ${id}`);
   let formulario = document.getElementById(`stock_${id}`);
+  /*let formularios = document.getElementsByClassName("cantidadStockDeseada");
+  for (const formulario of formularios){
+    console.log(formulario)
+    formulario.addEventListener("click", validarFormulario);
+  }
   formulario.addEventListener("submit", validarFormulario);
 }
- 
+let idGlobal;
 
 function validarFormulario(e){
   e.preventDefault();
+  console.log(e.target);
   let cantidad = e.target.children[0].value;
+  let id = e.target.children[1].id;
+  console.log("esto es un ID",id);
   alert(`Añadiste ${cantidad} productos al carrito`);
+  console.log(cantidad);
+  idGlobal = id;
+  //cliente.comprar(id);
+  }
+*/
+
+let carritos = document.querySelectorAll(".add-cart");
+
+console.log(carritos);
+
+
+for (let i=0; i<carritos.length; i++){
+  carritos[i].addEventListener("click", () => {
+    console.log("añadi a carrito el producto ",i);
+  }
+  )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const stock = [];
@@ -267,18 +309,9 @@ reponerMercaderia(3,"Latte");
 
 reponerMercaderia(3,"Doble");
 
-capturarStock(0);
+/*capturarStock(0);
 
 capturarStock(1);
 
-capturarStock(2);
-
-
-/*Necesito tenerlo comentado*/
-/*
-const cliente = logIn();
-
-cliente.comprar();
-
-cliente.pagar(); */
+capturarStock(2); */
 
