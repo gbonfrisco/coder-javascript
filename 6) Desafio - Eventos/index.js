@@ -138,23 +138,24 @@ function agregarNombre(nombre) {
   }
 }
 
-/*function contarStock(id) {
+function contarStock(id) {
+  let elemento;
   let boxs = document.getElementsByClassName("box-products");
   
   let productsArray = JSON.parse(localStorage.getItem("carrito")) || [];
   let cantidad = stockSeleccionado(productsArray,id).length;
-  //let elemento = document.createElement("a");
-  //elemento.innerHTML = "Productos en carrito: "+cantidad;
+  elemento = document.createElement("a");
+  elemento.innerHTML = "Productos en carrito: "+cantidad;
   
-  for (const box of boxs){
+  /*for (const box of boxs){
     let elemento = document.createElement("a");
     if (cantidad == undefined){
       elemento.innerHTML = "Producto en stock: "+0;
     }
-    else elemento.innerHTML = "Producto en stock: "+cantidad;
-    box.append(elemento);
+    else elemento.innerHTML = "Producto en stock: "+cantidad;*/
+    boxs[id].append(elemento);
   }
-}*/
+
 
 
 const guardarLocal = (clave, valor) => {
@@ -175,7 +176,7 @@ function addToCart() {
     btn[i].addEventListener("click", () => {
       btn[i].innerText = 1;
       guardarProducto(i);
-      //contarStock(i);
+      contarStock(i);
       btn[i].style.display = "none";
       pBtn[i].style.display = "inline-block";
       mBtn[i].style.display = "inline-block";
@@ -189,7 +190,7 @@ function addToCart() {
 
     pBtn[i].addEventListener("click", () => {
       guardarProducto(i);
-      //contarStock(i)
+      contarStock(i)
       console.log("añadi un producto a carrito");
     });
   }
