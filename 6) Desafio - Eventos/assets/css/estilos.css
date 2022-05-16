@@ -46,6 +46,15 @@ header.shadow{
     background: var(--text-color);
     box-shadow: var(--box-shadow);
 }
+header h1{
+    color: var(--bg-color);
+}
+.cart{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(17rem,auto));
+    gap: 1.5rem;
+
+} 
 .logo img{
     width: 60px;
 }
@@ -229,17 +238,29 @@ header.shadow{
     border: 2px solid var(--main-color);
     border-radius: 4px;
     text-align: center;
-    max-width: 40%;
     font-weight: 500;
 }
-.products-container .box form{
+.products-container .box a{
+padding-top: 5px;
+}
+.products-container .box .button{
     
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     gap: 10px;
     margin: 5px;
+}
+.products-container .box .btn{
+    
+    padding: 5px 10px;
+    cursor: pointer;
+    min-width: 40%;
+}
+.minusBtn, .plusBtn{
+    
+    display: none;
 }
 
 .products-container .box form .submitText{
