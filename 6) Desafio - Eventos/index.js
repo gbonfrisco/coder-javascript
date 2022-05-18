@@ -71,9 +71,10 @@ function stockSeleccionado(array, id) {
   return array.filter((elemento) => elemento.id === id);
 }
 
-function cantidadStock(id) {
-  return stockSeleccionado(id).length;
+function cantidadStock(array, id) {
+  return array.filter((elemento) => elemento.id === id).length;
 }
+
 
 /*function sumarCarrito(cafe, cantidad) {
 
@@ -153,6 +154,7 @@ function contarStock(id) {
       elemento.innerHTML = "Producto en stock: "+0;
     }
     else elemento.innerHTML = "Producto en stock: "+cantidad;*/
+    
     boxs[id].append(elemento);
   }
 
@@ -176,7 +178,7 @@ function addToCart() {
     btn[i].addEventListener("click", () => {
       btn[i].innerText = 1;
       guardarProducto(i);
-      contarStock(i);
+     
       btn[i].style.display = "none";
       pBtn[i].style.display = "inline-block";
       mBtn[i].style.display = "inline-block";
@@ -184,17 +186,18 @@ function addToCart() {
 
     mBtn[i].addEventListener("click", () => {
       removerProducto(i);
-      //contarStock(i)
+      
       console.log("removi un producto del carrito");
     });
 
     pBtn[i].addEventListener("click", () => {
       guardarProducto(i);
-      contarStock(i)
+     
       console.log("añadi un producto a carrito");
     });
   }
 }
+
 
 function guardarProducto(id) {
   let productsArray = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -202,6 +205,9 @@ function guardarProducto(id) {
   let productsArrayJSON = JSON.stringify(productsArray);
   localStorage.setItem("carrito", productsArrayJSON);
 }
+
+
+
 function removerProducto(id) {
   let productsArray = JSON.parse(localStorage.getItem("carrito")) || [];
   let elemento = productsArray.find((product) => product.id === id);
@@ -212,6 +218,7 @@ function removerProducto(id) {
 
   let productsArrayJSON = JSON.stringify(productsArray);
   localStorage.setItem("carrito", productsArrayJSON);
+
 }
 
 function eliminar(array, elemento) {
@@ -221,5 +228,24 @@ function eliminar(array, elemento) {
     array.splice(index, 1);
   } else alert("No existe stock del producto elegido");
 }
+window.onload = function(){
+  const iconShopping = document.querySelector("#icon-cart");
+  console.log(iconShopping);
+  iconShopping.onclick = function(){
+    alert("funciona el evento de click");
+  }
+}
+
+
 
 addToCart();
+
+
+
+/*
+PENDIENTES
+
+*Revisar que el carrito se está mostrando en el home. SACAR.
+*Agregar forma de vaciar carrito.
+* Lograr agregar una columna mas "cantidad" y poder mostrar por ID unico.
+*/
