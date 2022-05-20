@@ -58,14 +58,24 @@ header h1{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    background-color: white;
+    border: 2px solid var(--main-color);
     border-radius: 0.5rem;
     box-shadow: var(--box-shadow);
 }
 .cart a{
-    min-width: 145px;
+    
     text-align: center;
+    min-width: 90px;
 } 
 
+#total{
+    display: none;
+}
+#total.active{
+    display: flex;
+    flex-direction: row;
+}
 body .cart-containter{
 
     display: grid;
@@ -91,8 +101,7 @@ body .cart-containter{
     font-size: 1.5rem;
     gap: 1.5rem;
     padding: 10px 100px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(17rem,auto));
+  
 }
 .logo img{
     width: 60px;
@@ -126,6 +135,21 @@ body .cart-containter{
 .header-icon .bx:hover{
     color: var(--main-color);
 }
+header .carrito{
+    color: var(--text-color);
+    position: absolute;
+    top:100%; right: -100%;
+    display: none;
+    min-width: 40%;
+    padding:0 1.5rem;
+}
+header .carrito.active{ 
+    right: 0%;
+    display: inline;
+    
+}
+
+
 #menu-icon{
     color: var(--bg-color);
     font-size: 24px;
@@ -160,7 +184,6 @@ body .cart-containter{
 }
 .home {
     width: 100%;
-    /* min-height: 100vh; */
     background: url(../img/bgcoffee4.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -206,7 +229,21 @@ body .cart-containter{
     min-width: 50px;
     min-height: 30px;
 }
+
 .btn-cart:hover{
+    background: #8a6f4d;
+}
+
+.btn-cart-total{
+    border-radius: 0.3rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    font-weight: 500;
+    min-width: 70px;
+    min-height: 30px;
+}
+
+.btn-cart-total:hover{
     background: #8a6f4d;
 }
 
@@ -254,6 +291,7 @@ body .cart-containter{
     align-items: center;
     border-radius: 0.5rem;
     box-shadow: var(--box-shadow);
+
 }
 
 .products-container .box img{
@@ -332,6 +370,7 @@ background: var(--main-color);
 color: var(--bg-color);
 transition: 0.2s all linear;
 }
+
 .customers-container{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(17rem,auto));/*ver que onda esto*/
@@ -468,7 +507,7 @@ transition: 0.2s all linear;
         font-size: 2rem;
     }
 }
-@media (max-width:768px){
+@media (max-width:1150px){
     header{
         padding: 12px 4%;
     }

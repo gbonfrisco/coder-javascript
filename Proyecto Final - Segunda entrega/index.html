@@ -31,14 +31,16 @@
       </ul>
       <!-- Iconos -->
       <div class="header-icon">
-        <!-- href="assets/page/carrito.html"  -->
-         <a id="icon-cart" class="bx bx-cart-alt"></a>
+        <a id="icon-cart" class="bx bx-cart-alt"></a>
         <i class="bx bx-search" id="search-icon"></i>
       </div>
       <!-- search box -->
       <div class="search-box">
         <input type="search" name="" id="" placeholder="Buscar.." />
       </div>
+      <!-- carrito -->
+      <section class="carrito"></section>
+      <span id="total"></span>
     </header>
     <!-- Home -->
     <section class="home" id="home">
@@ -87,73 +89,77 @@
         <h2>Nuestros productos mas populares</h2>
         <!-- Containter -->
         <div class="products-container">
-
           <div class="box box-products">
             <img src="assets/img/product1.jpg" alt="product1" />
-            <h3>Americano puro</h3>
+            <h3>Americano</h3>
             <span>$200</span>
             <div class="button">
               <button class="minusBtn btn">-</button>
               <button class="mainBtn btn">AÑADIR A CARRITO</button>
               <button class="plusBtn btn">+</button>
             </div>
+            <p class="mostrarStock"></p>
           </div>
 
           <div class="box box-products">
             <img src="assets/img/product1.jpg" alt="product1" />
-            <h3>Americano puro</h3>
-            <span>$200</span>
+            <h3>latte</h3>
+            <span>$250</span>
             <div class="button">
               <button class="minusBtn btn">-</button>
               <button class="mainBtn btn">AÑADIR A CARRITO</button>
               <button class="plusBtn btn">+</button>
             </div>
+            <p class="mostrarStock"></p>
           </div>
 
           <div class="box box-products">
             <img src="assets/img/product1.jpg" alt="product1" />
-            <h3>Americano puro</h3>
-            <span>$200</span>
+            <h3>Doble</h3>
+            <span>$300</span>
             <div class="button">
               <button class="minusBtn btn">-</button>
               <button class="mainBtn btn">AÑADIR A CARRITO</button>
               <button class="plusBtn btn">+</button>
             </div>
+            <p class="mostrarStock"></p>
           </div>
 
           <div class="box box-products">
             <img src="assets/img/product1.jpg" alt="product1" />
-            <h3>Americano puro</h3>
-            <span>$200</span>
+            <h3>Mocca</h3>
+            <span>$350</span>
             <div class="button">
               <button class="minusBtn btn">-</button>
               <button class="mainBtn btn">AÑADIR A CARRITO</button>
               <button class="plusBtn btn">+</button>
             </div>
+            <p class="mostrarStock"></p>
           </div>
 
           <div class="box box-products">
             <img src="assets/img/product1.jpg" alt="product1" />
-            <h3>Americano puro</h3>
-            <span>$200</span>
+            <h3>Moka Belga</h3>
+            <span>$450</span>
             <div class="button">
               <button class="minusBtn btn">-</button>
               <button class="mainBtn btn">AÑADIR A CARRITO</button>
               <button class="plusBtn btn">+</button>
             </div>
+            <p class="mostrarStock"></p>
           </div>
 
           <div class="box box-products">
             <img src="assets/img/product1.jpg" alt="product1" />
-            <h3>Americano puro</h3>
-            <span>$200</span>
+            <h3>Capuccino</h3>
+            <span>$150</span>
             <div class="button">
               <button class="minusBtn btn">-</button>
               <button class="mainBtn btn">AÑADIR A CARRITO</button>
               <button class="plusBtn btn">+</button>
             </div>
+            <p class="mostrarStock"></p>
           </div>
-          
         </div>
       </div>
     </section>
@@ -312,8 +318,7 @@
     </div>
 
     <!-- Link to JS -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="index.js"></script>
-    
-    
   </body>
 </html>
