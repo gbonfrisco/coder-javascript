@@ -115,6 +115,7 @@ const guardarLocal = (clave, valor) => {
   localStorage.setItem(clave, valor);
   
 };
+
 const sacarLocal = (clave, valor) => {
 
   localStorage.removeItem(clave, valor);
@@ -176,20 +177,17 @@ function removerProducto(id) {
   let productsArray = JSON.parse(localStorage.getItem("carrito")) || [];
   let elemento = productsArray.find((product) => product.id === id);
 
-  if (elemento !== undefined) {
-    eliminar(productsArray, elemento);
-  }
+  elemento !== undefined && eliminar(productsArray, elemento);
 
-    let productsArrayJSON = JSON.stringify(productsArray);
+  let productsArrayJSON = JSON.stringify(productsArray);
   localStorage.setItem("carrito", productsArrayJSON);
 }
 
 function eliminar(array, elemento) {
   let index = array.indexOf(elemento);
 
-  if (index != -1) {
-    array.splice(index, 1);
-  } else alert("No existe stock del producto elegido");
+  index != -1 ? array.splice(index, 1) : console.log("No existe stock del producto elegido");
+  
 }
 
 function removerRenderizar(id) {
