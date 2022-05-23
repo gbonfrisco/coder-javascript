@@ -221,6 +221,15 @@ header .carrito.active{
 .btn:hover{
     background: #8a6f4d;
 }
+
+.swal2-actions{
+    gap: 5px;
+}
+.swal2-actions .btn{
+ padding: 10px 10px;
+ min-width: 7rem;
+}
+
 .btn-cart{
     border-radius: 0.3rem;
     background: var(--main-color);

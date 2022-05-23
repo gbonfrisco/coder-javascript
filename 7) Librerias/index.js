@@ -269,6 +269,43 @@ function renderizar() {
   let pagar = document.createElement("button");
   pagar.textContent = "Pagar";
   pagar.className = "btn-cart-total";
+  
+  pagar.addEventListener("click", ()=>{
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: '¿Estas seguro',
+      text: "Estás por pagar tu pedido",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Si, pagar!',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire(
+          'Felicitaciones!',
+          'Compra exitosa',
+          'success'
+        )
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'Tus productos fueron devueltos al carrito',
+          'error'
+        )
+      }
+    })
+  }
+  )
 
   DOMTOTAL.append(pagar);
 }
