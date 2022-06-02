@@ -20,11 +20,15 @@ class Cliente {
   }
 }
 let cartItem = document.querySelector(".carrito");
-let divbar = document.querySelector("#total");
+let divBar = document.querySelector("#total");
 let stockControl = document.querySelectorAll(".mostrarStock");
+let enviar = document.querySelector(".form-container");
+
 
 const DOMcarrito = document.querySelector(".carrito");
 const DOMTOTAL = document.querySelector("#total");
+const DOMFormulario = document.querySelector(".form-container");
+
 
 function getProduct(id) {
 
@@ -62,19 +66,6 @@ function cantidadStock(array, id) {
 function costoTotal(producto) {
 
   return producto.reduce((acum, elem) => acum + elem.precio, 0);
-}
-
-function logIn() {
-  
-  let usuario = prompt("Bienvenido. Ingrese su usuario");
-
-  let contrasenia = prompt("Ingrese su contraseña");
-
-  let dinero = parseInt(prompt("¿Cual es tu presupuesto?"));
-
-  agregarNombre(usuario);
-
-  return new Cliente(usuario, contrasenia, "TC - VISA", dinero);
 }
 
 function agregarNombre(nombre) {
@@ -210,7 +201,7 @@ function renderizar() {
   DOMTOTAL.textContent = "";
   stockControl.textContent = "";
 
-  let listaProductos = JSON.parse(localStorage.getItem("carrito"));
+  let listaProductos = JSON.parse(localStorage.getItem("carrito")) || [];
   let listaIDs = listaProductos.map((elem) => elem.id);
   const listaIDSinDuplicados = [...new Set(listaIDs)];
 
@@ -309,11 +300,60 @@ function renderizar() {
 
   DOMTOTAL.append(pagar);
 }
+/*
+function guardarFormulario(e){
+  e.preventDefault();
+  let formulario = JSON.parse(localStorage.getItem("formulario")) || [];
+  let DOMInput = DOMFormulario.querySelectorAll("input");
+  let DOMTextArea = DOMFormulario.querySelector("textarea");
+  let datos; // = [];
+
+for (input of DOMInput){
+  datos.push(input.value);
+}
+datos.push(DOMTextArea.value);
+formulario.push(datos);
+let formularioJSON = JSON.stringify(formulario);
+localStorage.setItem("formulario",formularioJSON);
+
+}
+
+DOMFormulario.addEventListener("submit", guardarFormulario);
+*/
+
+let formularioDOM = document.getElementsByClassName("form-container");
+console.log(formularioDOM);
+console.log(formularioDOM[0]);
+
+formularioDOM[0].addEventListener("submit",(e)=>{
+  console.log(formularioDOM);
+  e.preventDefault();
+  let formulario = JSON.parse(localStorage.getItem("formulario")) || [];
+
+  let nombre = document.getElementById("name").value;
+  let numero = document.getElementById("number").value;
+  let email = document.getElementById("email").value;
+  let textArea =document.getElementById("textArea").value;
+
+  let datos = [];
+
+  datos = [nombre, numero, email, textArea ];
+  console.log(datos);
+  formulario.push(datos);
+  let formularioJSON = JSON.stringify(formulario);
+  localStorage.setItem("formulario",formularioJSON);
+})
+
+
 
 document.querySelector("#icon-cart").onclick = () => {
   cartItem.classList.toggle("active");
-  divbar.classList.toggle("active");
+  divBar.classList.toggle("active");
   renderizar();
 };
 
 addToCart();
+
+
+
+//Arreglar formulario. Tiene que ser con submit para que controle bien todo. Mirar el login/signup y ya

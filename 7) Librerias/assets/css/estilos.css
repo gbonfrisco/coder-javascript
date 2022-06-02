@@ -46,8 +46,15 @@ header.shadow{
     background: var(--text-color);
     box-shadow: var(--box-shadow);
 }
-header h1{
+header .encabezado{
     color: var(--bg-color);
+}
+.home-products{
+    padding: 8px 17px;
+    color: var(--bg-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 .cart{
 
@@ -103,6 +110,20 @@ body .cart-containter{
     padding: 10px 100px;
   
 }
+
+.container form{
+    text-align: center;
+}
+.container{
+    background-color: #E8CC9E;
+    margin: 10% 40%;
+    border-radius: 1rem;
+}
+.container .btn{
+    background-color: brown;
+    margin: 10px;
+}
+    
 .logo img{
     width: 60px;
 }
@@ -338,6 +359,11 @@ header .carrito.active{
     text-align: center;
     font-weight: 500;
 }
+.products-container .box h4{
+    font-weight: 400;
+    font-style: italic;
+}
+
 .products-container .box a{
 padding-top: 5px;
 }
@@ -378,6 +404,11 @@ border: 2px solid black;
 background: var(--main-color);
 color: var(--bg-color);
 transition: 0.2s all linear;
+}
+
+.productsApi{
+    text-align: center;
+    align-items: center;
 }
 
 .customers-container{
@@ -482,6 +513,7 @@ transition: 0.2s all linear;
     flex-direction: column;
     justify-content: center;
     border-radius: 0.5rem;
+    min-width: 90%;
     /* box-shadow: var(--box-shadow); */
 }
 .text-area {
@@ -490,7 +522,8 @@ transition: 0.2s all linear;
     min-height: 88%;
 }
 .form-contacto .btn{
-    margin-left: 15px;
+    min-width: 10%!Important ;
+    text-align: center;
 }
 
 
