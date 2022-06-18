@@ -110,7 +110,18 @@ body .cart-containter{
     padding: 10px 100px;
   
 }
-
+.container .inputBox{
+    width: 90%;
+}
+.container .inputButton{
+    width: 90%;
+    height: 5vh;
+    max-width: 50%;
+    text-align: center;
+    color: white;
+    padding: 0;
+    
+}
 .container form{
     text-align: center;
 }

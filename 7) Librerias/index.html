@@ -95,77 +95,7 @@
         <h2>Nuestros productos mas populares</h2>
         <!-- Containter -->
         <div class="products-container">
-          <div class="box box-products">
-            <img src="assets/img/product1.jpg" alt="product1" />
-            <h3>Americano</h3>
-            <span>$200</span>
-            <div class="button">
-              <button class="minusBtn btn">-</button>
-              <button class="mainBtn btn">AÑADIR A CARRITO</button>
-              <button class="plusBtn btn">+</button>
-            </div>
-            <p class="mostrarStock"></p>
-          </div>
 
-          <div class="box box-products">
-            <img src="assets/img/product1.jpg" alt="product1" />
-            <h3>latte</h3>
-            <span>$250</span>
-            <div class="button">
-              <button class="minusBtn btn">-</button>
-              <button class="mainBtn btn">AÑADIR A CARRITO</button>
-              <button class="plusBtn btn">+</button>
-            </div>
-            <p class="mostrarStock"></p>
-          </div>
-
-          <div class="box box-products">
-            <img src="assets/img/product1.jpg" alt="product1" />
-            <h3>Doble</h3>
-            <span>$300</span>
-            <div class="button">
-              <button class="minusBtn btn">-</button>
-              <button class="mainBtn btn">AÑADIR A CARRITO</button>
-              <button class="plusBtn btn">+</button>
-            </div>
-            <p class="mostrarStock"></p>
-          </div>
-
-          <div class="box box-products">
-            <img src="assets/img/product1.jpg" alt="product1" />
-            <h3>Mocca</h3>
-            <span>$350</span>
-            <div class="button">
-              <button class="minusBtn btn">-</button>
-              <button class="mainBtn btn">AÑADIR A CARRITO</button>
-              <button class="plusBtn btn">+</button>
-            </div>
-            <p class="mostrarStock"></p>
-          </div>
-
-          <div class="box box-products">
-            <img src="assets/img/product1.jpg" alt="product1" />
-            <h3>Moka Belga</h3>
-            <span>$450</span>
-            <div class="button">
-              <button class="minusBtn btn">-</button>
-              <button class="mainBtn btn">AÑADIR A CARRITO</button>
-              <button class="plusBtn btn">+</button>
-            </div>
-            <p class="mostrarStock"></p>
-          </div>
-
-          <div class="box box-products">
-            <img src="assets/img/product1.jpg" alt="product1" />
-            <h3>Capuccino</h3>
-            <span>$150</span>
-            <div class="button">
-              <button class="minusBtn btn">-</button>
-              <button class="mainBtn btn">AÑADIR A CARRITO</button>
-              <button class="plusBtn btn">+</button>
-            </div>
-            <p class="mostrarStock"></p>
-          </div>
         </div>
       </div>
     </section>
@@ -288,13 +218,13 @@
                    
          <div>
            <label for="name">Nombre</label><br>
-           <input class="box" type="text" name="name" id="name"><br>
+           <input class="box" type="text" required="required" name="name" id="name"><br>
   
            <label for="numero">Telefono</label><br>
-           <input class="box" type="number" name="number" id="number"><br>
+           <input class="box" type="number" required="required" name="number" id="number"><br>
     
            <label for="email">E-Mail</label><br>
-           <input class="box" type="email" name="email" id="email"><br>
+           <input class="box" type="email" required="required" name="email" id="email"><br>
                    
            <button class="box btn add-cart" type="submit">Crear</button><br> 
          </div>
@@ -302,6 +232,7 @@
        <div>
            <textarea
            class="box text-area"
+           required="required"
            placeholder="Deje un comentario aqui"
            id="textArea"
          ></textarea>
