@@ -39,5 +39,5 @@ function guardarUsuario(user) {
   userStorageArray.push(user);
   let userStorageArrayJSON = JSON.stringify(userStorageArray);
   localStorage.setItem("usuarios", userStorageArrayJSON);
-  window.location.replace("../../index.html");
+  window.location.replace("login.html");
 }

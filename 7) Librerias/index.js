@@ -26,31 +26,37 @@ const DOMcarrito = document.querySelector(".carrito");
 const DOMTOTAL = document.querySelector("#total");
 const DOMFormulario = document.querySelector(".form-container");
 
+let navbar = document.querySelector(".navbar");
+document.querySelector("#menu-icon").onclick = () => {
+  navbar.classList.toggle("active");
+};
+
+
 function getProduct(id, nombreCafe) {
   let objID;
   switch (id) {
     case 0:
-      objID = {id:id+1};
+      objID = { id: id + 1 };
       return new Producto(id, nombreCafe, getPricing(objID));
 
     case 1:
-      objID = {id:id+1};
+      objID = { id: id + 1 };
       return new Producto(id, nombreCafe, getPricing(objID));
 
     case 2:
-      objID = {id:id+1};
+      objID = { id: id + 1 };
       return new Producto(id, nombreCafe, getPricing(objID));
 
     case 3:
-      objID = {id:id+1};
+      objID = { id: id + 1 };
       return new Producto(id, nombreCafe, getPricing(objID));
 
     case 4:
-      objID = {id:id+1};
+      objID = { id: id + 1 };
       return new Producto(id, nombreCafe, getPricing(objID));
 
     case 5:
-      objID = {id:id+1};
+      objID = { id: id + 1 };
       return new Producto(id, nombreCafe, getPricing(objID));
   }
 }
@@ -100,7 +106,6 @@ const sacarLocal = (clave, valor) => {
 };
 
 async function crearCard() {
-
   const respuesta = await fetch("https://api.sampleapis.com/coffee/hot");
   const data = await respuesta.json();
 
@@ -155,27 +160,26 @@ async function crearCard() {
   addToCart();
 }
 
-function getPricing(array){
-  switch(array.id){
-  
-    case(1):
-    return 200;
+function getPricing(array) {
+  switch (array.id) {
+    case 1:
+      return 200;
 
-    case(2):
-    return 350;
+    case 2:
+      return 350;
 
-    case(3):
-    return 300;
+    case 3:
+      return 300;
 
-    case(4):
-    return 250;
+    case 4:
+      return 250;
 
-    case(5):
-    return 150;
+    case 5:
+      return 150;
 
-    case(6):
-    return 400;
-}
+    case 6:
+      return 400;
+  }
 }
 
 function addToCart() {
@@ -183,7 +187,9 @@ function addToCart() {
   let mBtn = document.querySelectorAll(".minusBtn");
   let pBtn = document.querySelectorAll(".plusBtn");
 
-  let nombreCafe = document.querySelectorAll(".products-container .box-products h3");
+  let nombreCafe = document.querySelectorAll(
+    ".products-container .box-products h3"
+  );
 
   let buttonClass = document.querySelectorAll(".button");
 
@@ -232,7 +238,9 @@ function removerProducto(id) {
 function eliminar(array, elemento) {
   let index = array.indexOf(elemento);
 
-  index != -1 ? array.splice(index, 1) : console.log("No existe stock del producto elegido");
+  index != -1
+    ? array.splice(index, 1)
+    : console.log("No existe stock del producto elegido");
 }
 
 function removerRenderizar(id) {
@@ -286,7 +294,7 @@ function renderizar() {
     pBoton.style.marginLeft = "1rem";
 
     pBoton.addEventListener("click", () => {
-      agregarRenderizar(miItem[0].id,miItem[0].nombre);
+      agregarRenderizar(miItem[0].id, miItem[0].nombre);
     });
 
     miNodo.appendChild(mBoton);
@@ -305,7 +313,7 @@ function renderizar() {
   pagarButton.textContent = "Pagar";
   pagarButton.className = "btn-cart-total";
 
-    /*
+  /*
   pagarButton.addEventListener("click", () => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -344,11 +352,34 @@ function renderizar() {
 
   pagarButton.addEventListener("click", () => {
     pagar();
-
-  })
-
+  });
 
   DOMTOTAL.append(pagarButton);
+}
+
+function bienvenida() {
+  let userLogged = JSON.parse(localStorage.getItem("currentlyLogged"));
+  console.log(userLogged);
+  if (userLogged != null) {
+    let loginElement = document.querySelector("#login a");
+    console.log(loginElement);
+    let nodoPadre = loginElement.parentNode;
+    console.log(nodoPadre);
+
+    let bienvenidaElement = document.createElement("a");
+    bienvenidaElement.textContent = `Bienvenido ${userLogged.nombre}!`;
+
+    let logOut = document.createElement("a");
+    logOut.textContent = "Cerrar sesion";
+    nodoPadre.append(logOut);
+
+    nodoPadre.replaceChild(bienvenidaElement, loginElement);
+
+    logOut.addEventListener("click", () => {
+      localStorage.removeItem("currentlyLogged");
+      location.reload();
+    });
+  }
 }
 
 let formularioDOM = document.getElementsByClassName("form-container");
@@ -381,32 +412,32 @@ document.querySelector("#icon-cart").onclick = () => {
 const pagar = async () => {
   let productsArray = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  const productosToMap = productsArray.map(elem => {
-    let nuevoElemento = 
-    {
-        title: elem.nombre,
-        category_id: elem.id,
-        quantity: 1,
-        currency_id: "ARS",
-        unit_price: elem.precio
-    }
+  const productosToMap = productsArray.map((elem) => {
+    let nuevoElemento = {
+      title: elem.nombre,
+      category_id: elem.id,
+      quantity: 1,
+      currency_id: "ARS",
+      unit_price: elem.precio,
+    };
     return nuevoElemento;
-  })
-    let response = await fetch("https://api.mercadopago.com/checkout/preferences", {
-
-        method: "POST",
-        headers: {
-            Authorization: "Bearer TEST-7273697920934677-061709-bb26a8872dfa57958b250444e9cc25a2-47692184"
-        },
-        body: JSON.stringify({
-            items: productosToMap
-        })
-    })
-    let data = await response.json()
-    console.log(data)
-    window.open(data.init_point, "_blank")
-
-  }
-
+  });
+  let response = await fetch(
+    "https://api.mercadopago.com/checkout/preferences",
+    {
+      method: "POST",
+      headers: {
+        Authorization:
+          "Bearer TEST-7273697920934677-061709-bb26a8872dfa57958b250444e9cc25a2-47692184",
+      },
+      body: JSON.stringify({
+        items: productosToMap,
+      }),
+    }
+  );
+  let data = await response.json();
+  console.log(data);
+  window.open(data.init_point, "_blank");
+};
+bienvenida();
 crearCard();
-//Arreglar formulario. Tiene que ser con submit para que controle bien todo. Mirar el login/signup y ya

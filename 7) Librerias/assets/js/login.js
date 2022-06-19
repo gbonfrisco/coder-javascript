@@ -10,8 +10,11 @@ function login(e) {
   let password = document.getElementById("password").value;
   let resultado = document.getElementById("result");
 
+
   let userStorageArray = JSON.parse(localStorage.getItem("usuarios")) || [];
   let userStorage = userStorageArray.find((user) => user.usuario == username);
+
+
 
   if (userStorage == undefined || userStorage.contrasenia != password) 
   {
@@ -22,5 +25,14 @@ function login(e) {
   {
     resultado.textContent = "Bienvenido " + userStorage.nombre + "!";
     account.remove();
+    saveLogin(userStorage);
+    window.location.replace("../../index.html");
   }
+}
+
+function saveLogin(userStorage){
+
+  let userStorageJSON = JSON.stringify(userStorage);
+  localStorage.setItem("currentlyLogged",userStorageJSON)
+
 }
