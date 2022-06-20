@@ -31,7 +31,6 @@ document.querySelector("#menu-icon").onclick = () => {
   navbar.classList.toggle("active");
 };
 
-
 function getProduct(id, nombreCafe) {
   let objID;
   switch (id) {
@@ -313,14 +312,11 @@ function renderizar() {
   pagarButton.textContent = "Pagar";
   pagarButton.className = "btn-cart-total";
 
-
   pagarButton.addEventListener("click", () => {
-  let sesionCheck = JSON.parse(localStorage.getItem("currentlyLogged")) || -1;  
-  if(sesionCheck != -1)
-  {
-    pagar();
-  }
-  else Swal.fire('¡Debes iniciar sesion primero!');
+    let sesionCheck = JSON.parse(localStorage.getItem("currentlyLogged")) || -1;
+    if (sesionCheck != -1) {
+      pagar();
+    } else Swal.fire("¡Debes iniciar sesion primero!");
   });
 
   DOMTOTAL.append(pagarButton);
