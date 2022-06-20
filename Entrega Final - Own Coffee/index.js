@@ -313,45 +313,14 @@ function renderizar() {
   pagarButton.textContent = "Pagar";
   pagarButton.className = "btn-cart-total";
 
-  /*
-  pagarButton.addEventListener("click", () => {
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: "btn btn-success",
-        cancelButton: "btn btn-danger",
-      },
-      buttonsStyling: false,
-    });
-
-    swalWithBootstrapButtons
-      .fire({
-        title: "¿Estas seguro",
-        text: "Estás por pagar tu pedido",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonText: "Si, pagar!",
-        cancelButtonText: "No, cancelar!",
-        reverseButtons: true,
-      })
-      .then((result) => {
-        if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire(
-            "Felicitaciones!",
-            "Compra exitosa",
-            "success"
-          );
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-          swalWithBootstrapButtons.fire(
-            "Cancelado",
-            "Tus productos fueron devueltos al carrito",
-            "error"
-          );
-        }
-      });
-  }); */
 
   pagarButton.addEventListener("click", () => {
+  let sesionCheck = JSON.parse(localStorage.getItem("currentlyLogged")) || -1;  
+  if(sesionCheck != -1)
+  {
     pagar();
+  }
+  else Swal.fire('¡Debes iniciar sesion primero!');
   });
 
   DOMTOTAL.append(pagarButton);

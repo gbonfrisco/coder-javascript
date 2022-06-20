@@ -572,7 +572,9 @@ transition: 0.2s all linear;
     text-align: center;
 }
 
-
+.swal2-styled.swal2-confirm{
+    background-color: var(--main-color);
+}
 
 
 
