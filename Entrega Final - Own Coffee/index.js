@@ -31,32 +31,25 @@ document.querySelector("#menu-icon").onclick = () => {
   navbar.classList.toggle("active");
 };
 
-function getProduct(id, nombreCafe) {
-  let objID;
+function getProduct(id) {
   switch (id) {
     case 0:
-      objID = { id: id + 1 };
-      return new Producto(id, nombreCafe, getPricing(objID));
+      return new Producto(id, "Americano", 200);
 
     case 1:
-      objID = { id: id + 1 };
-      return new Producto(id, nombreCafe, getPricing(objID));
+      return new Producto(id, "Latte", 250);
 
     case 2:
-      objID = { id: id + 1 };
-      return new Producto(id, nombreCafe, getPricing(objID));
+      return new Producto(id, "Doble", 300);
 
     case 3:
-      objID = { id: id + 1 };
-      return new Producto(id, nombreCafe, getPricing(objID));
+      return new Producto(id, "Mocca", 350);
 
     case 4:
-      objID = { id: id + 1 };
-      return new Producto(id, nombreCafe, getPricing(objID));
+      return new Producto(id, "Moka Belga", 450);
 
     case 5:
-      objID = { id: id + 1 };
-      return new Producto(id, nombreCafe, getPricing(objID));
+      return new Producto(id, "Capuccino", 150);
   }
 }
 
@@ -104,58 +97,55 @@ const sacarLocal = (clave, valor) => {
   localStorage.removeItem(clave, valor);
 };
 
-async function crearCard() {
-  const respuesta = await fetch("https://api.sampleapis.com/coffee/hot");
-  const data = await respuesta.json();
-
-  const productArray = data.filter((elemento) => elemento.id <= 6);
-
+function crearCard() {
   const DOMCard = document.querySelector(
     ".products .heading .products-container"
   );
+for (let i = 0; i<6;i++){
+  let product = getProduct(i);
 
-  productArray.forEach((elemento) => {
-    let boxProducts = document.createElement("div");
-    boxProducts.className = "box box-products";
+  let boxProducts = document.createElement("div");
+  boxProducts.className = "box box-products";
 
-    let imgProducts = document.createElement("img");
-    imgProducts.setAttribute("src", "assets/img/product1.jpg");
-    imgProducts.setAttribute("alt", "product1");
+  let imgProducts = document.createElement("img");
+  imgProducts.setAttribute("src", "assets/img/product1.jpg");
+  imgProducts.setAttribute("alt", "product1");
 
-    let hProducts = document.createElement("h3");
-    hProducts.innerHTML = elemento.title;
+  let hProducts = document.createElement("h3");
+  hProducts.innerHTML= product.nombre;
 
-    let spanProducts = document.createElement("span");
-    spanProducts.innerHTML = getPricing(elemento);
+  let spanProducts = document.createElement("span");
+  spanProducts.innerHTML = product.precio;
 
-    let buttonBox = document.createElement("div");
-    buttonBox.className = "button";
+  let buttonBox = document.createElement("div");
+  buttonBox.className = "button";
 
-    let mButton = document.createElement("button");
-    let mainButton = document.createElement("button");
-    let pButton = document.createElement("button");
+  let mButton = document.createElement("button");
+  let mainButton = document.createElement("button");
+  let pButton = document.createElement("button");
 
-    mButton.className = "minusBtn btn";
-    mainButton.className = "mainBtn btn";
-    pButton.className = "plusBtn btn";
+  mButton.className = "minusBtn btn";
+  mainButton.className = "mainBtn btn";
+  pButton.className = "plusBtn btn";
 
-    mButton.innerHTML = "-";
-    mainButton.innerHTML = "AÑADIR A CARRITO";
-    pButton.innerHTML = "+";
+  mButton.innerHTML = "-";
+  mainButton.innerHTML = "AÑADIR A CARRITO";
+  pButton.innerHTML = "+";
 
-    let stockProducts = document.createElement("p");
-    stockProducts.className = "mostrarStock";
+  let stockProducts = document.createElement("p");
+  stockProducts.className = "mostrarStock";
 
-    DOMCard.append(boxProducts);
-    boxProducts.append(imgProducts);
-    boxProducts.append(hProducts);
-    boxProducts.append(spanProducts);
-    boxProducts.append(buttonBox);
-    buttonBox.append(mButton);
-    buttonBox.append(mainButton);
-    buttonBox.append(pButton);
-    boxProducts.append(stockProducts);
-  });
+  DOMCard.append(boxProducts);
+  boxProducts.append(imgProducts);
+  boxProducts.append(hProducts);
+  boxProducts.append(spanProducts);
+  boxProducts.append(buttonBox);
+  buttonBox.append(mButton);
+  buttonBox.append(mainButton);
+  buttonBox.append(pButton);
+  boxProducts.append(stockProducts);
+  }
+
   addToCart();
 }
 
@@ -186,16 +176,12 @@ function addToCart() {
   let mBtn = document.querySelectorAll(".minusBtn");
   let pBtn = document.querySelectorAll(".plusBtn");
 
-  let nombreCafe = document.querySelectorAll(
-    ".products-container .box-products h3"
-  );
-
   let buttonClass = document.querySelectorAll(".button");
 
   for (let i = 0; i < buttonClass.length; i++) {
     btn[i].addEventListener("click", () => {
       btn[i].innerText = 1;
-      guardarProducto(i, nombreCafe[i].textContent);
+      guardarProducto(i);
       contarStock(i);
       renderizar();
       btn[i].style.display = "none";
@@ -210,16 +196,16 @@ function addToCart() {
     });
 
     pBtn[i].addEventListener("click", () => {
-      guardarProducto(i, nombreCafe[i].textContent);
+      guardarProducto(i);
       contarStock(i);
       renderizar();
     });
   }
 }
 
-function guardarProducto(id, nombreCafe) {
+function guardarProducto(id) {
   let productsArray = JSON.parse(localStorage.getItem("carrito")) || [];
-  productsArray.push(getProduct(id, nombreCafe));
+  productsArray.push(getProduct(id));
   let productsArrayJSON = JSON.stringify(productsArray);
   localStorage.setItem("carrito", productsArrayJSON);
 }
@@ -248,8 +234,8 @@ function removerRenderizar(id) {
   renderizar();
 }
 
-function agregarRenderizar(id, nombre) {
-  guardarProducto(id, nombre);
+function agregarRenderizar(id) {
+  guardarProducto(id);
   contarStock(id);
   renderizar();
 }
@@ -293,7 +279,7 @@ function renderizar() {
     pBoton.style.marginLeft = "1rem";
 
     pBoton.addEventListener("click", () => {
-      agregarRenderizar(miItem[0].id, miItem[0].nombre);
+      agregarRenderizar(miItem[0].id);
     });
 
     miNodo.appendChild(mBoton);
